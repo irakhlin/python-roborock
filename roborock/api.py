@@ -68,6 +68,7 @@ WASH_N_FILL_DOCK = [
     RoborockDockTypeCode.empty_wash_fill_dock,
     RoborockDockTypeCode.s8_dock,
     RoborockDockTypeCode.p10_dock,
+    RoborockDockTypeCode.s8_maxv_ultra_dock,
 ]
 
 
