@@ -65,10 +65,12 @@ class RoborockStateCode(RoborockEnum):
     segment_cleaning = 18
     emptying_the_bin = 22  # on s7+
     washing_the_mop = 23  # on a46
+    washing_the_mop_2 = 25
     going_to_wash_the_mop = 26  # on a46
     in_call = 28
     mapping = 29
     egg_attack = 30
+    patrol = 32
     charging_complete = 100
     device_offline = 101
     locked = 103
@@ -126,6 +128,7 @@ class RoborockErrorCode(RoborockEnum):
     side_brush_error = 17
     fan_error = 18
     dock = 19  # Dock not connected to power
+    optical_flow_sensor_dirt = 20
     vertical_bumper_pressed = 21
     dock_locator_error = 22
     return_to_dock_fail = 23
@@ -150,8 +153,14 @@ class RoborockErrorCode(RoborockEnum):
     clear_brush_exception_2 = 43  # Positioning button error
     filter_screen_exception = 44  # Clean the dock water filter
     mopping_roller_2 = 45  # Wash roller may be jammed
+    up_water_exception = 48
+    drain_water_exception = 49
     temperature_protection = 51  # Unit temperature protection
-
+    clean_carousel_exception = 52
+    clean_carousel_water_full = 53
+    water_carriage_drop = 54
+    check_clean_carouse = 55
+    audio_error = 56
 
 class RoborockFanPowerCode(RoborockEnum):
     """Describes the fan power of the vacuum cleaner."""
@@ -235,6 +244,15 @@ class RoborockFanSpeedP10(RoborockFanPowerCode):
     custom = 106
     max_plus = 108
 
+class RoborockFanSpeedS8MaxVUltra(RoborockFanPowerCode):
+    off = 105
+    quiet = 101
+    balanced = 102
+    turbo = 103
+    max = 104
+    custom = 106
+    max_plus = 108
+    smart_mode = 110
 
 class RoborockMopModeCode(RoborockEnum):
     """Describes the mop mode of the vacuum cleaner."""
@@ -247,6 +265,25 @@ class RoborockMopModeS7(RoborockMopModeCode):
     deep = 301
     custom = 302
     deep_plus = 303
+
+class RoborockMopModeS8MaxVUltra(RoborockMopModeCode):
+    standard = 300
+    deep = 301
+    custom = 302
+    deep_plus = 303
+    fast = 304
+    deep_plus_pearl = 305
+    smart_mode = 306
+
+class RoborockMopIntensityS8MaxVUltra(RoborockMopIntensityCode):
+    off = 200
+    low = 201
+    medium = 202
+    high = 203
+    custom = 204
+    max = 208
+    smart_mode = 209
+    custom_water_flow = 207
 
 
 class RoborockMopModeS8ProUltra(RoborockMopModeCode):
@@ -321,6 +358,7 @@ class RoborockDockErrorCode(RoborockEnum):
     duct_blockage = 34
     water_empty = 38
     waste_water_tank_full = 39
+    maintenance_brush_jammed = 42
     dirty_tank_latch_open = 44
     no_dustbin = 46
     cleaning_tank_full_or_blocked = 53
@@ -335,6 +373,10 @@ class RoborockDockTypeCode(RoborockEnum):
     s7_max_ultra_dock = 6
     s8_dock = 7
     p10_dock = 8
+    s8_maxv_ultra_dock = 10
+    qrevo_master_dock = 14
+    qrevo_s_dock = 15
+    qrevo_curv_dock = 17
 
 
 class RoborockDockDustCollectionModeCode(RoborockEnum):
@@ -356,6 +398,7 @@ class RoborockDockWashTowelModeCode(RoborockEnum):
     light = 0
     balanced = 1
     deep = 2
+    smart = 10
 
 
 class RoborockCategory(Enum):
