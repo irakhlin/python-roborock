@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import json
 import logging
+import asyncio
+import sys
 from pathlib import Path
 from typing import Any
 
@@ -19,6 +21,8 @@ from roborock.web_api import RoborockApiClient
 
 _LOGGER = logging.getLogger(__name__)
 
+if sys.platform == "win32":
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
 class RoborockContext:
     roborock_file = Path("~/.roborock").expanduser()

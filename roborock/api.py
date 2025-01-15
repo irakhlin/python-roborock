@@ -63,6 +63,14 @@ COMMANDS_SECURED = [
     RoborockCommand.GET_MAP_V1,
     RoborockCommand.GET_MULTI_MAP,
 ]
+
+CUSTOM_COMMANDS = {RoborockCommand.GET_MAP_CALIBRATION}
+
+CLOUD_REQUIRED = [
+    RoborockCommand.GET_MAP_V1,
+    RoborockCommand.GET_MULTI_MAP,
+    RoborockCommand.GET_MAP_CALIBRATION
+]
 RT = TypeVar("RT", bound=RoborockBase)
 WASH_N_FILL_DOCK = [
     RoborockDockTypeCode.empty_wash_fill_dock,
