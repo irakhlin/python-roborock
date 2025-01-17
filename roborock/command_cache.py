@@ -51,6 +51,7 @@ cache_map: Mapping[CacheableAttribute, RoborockAttribute] = {
         additional_change_commands=[
             RoborockCommand.SET_WATER_BOX_CUSTOM_MODE,
             RoborockCommand.SET_MOP_MODE,
+            RoborockCommand.LOAD_MULTI_MAP
         ],
     ),
     CacheableAttribute.consumable: RoborockAttribute(

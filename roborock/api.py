@@ -441,6 +441,16 @@ class RoborockClient:
             return CleanSummary(clean_time=clean_summary)
         return None
 
+    async def set_current_map(self, map_id: int) -> Status | None:
+        cacheable_attribute_result = find_cacheable_attribute(RoborockCommand.GET_STATUS)
+        cache = self.cache[cacheable_attribute_result.attribute]
+        _LOGGER.debug("fset_current_map, setting current map to {map_id}")
+        await self._send_command(RoborockCommand.LOAD_MULTI_MAP, [map_id])
+        await cache.refresh_value()
+        _response = self._status_type.from_dict(await self.cache[CacheableAttribute.status].async_value())
+        _LOGGER.debug(f"set_current_map, updating device status {_response}")
+        return _response
+
     async def get_clean_record(self, record_id: int) -> CleanRecord | None:
         record: dict | list = await self.send_command(RoborockCommand.GET_CLEAN_RECORD, [record_id])
         if isinstance(record, dict):
