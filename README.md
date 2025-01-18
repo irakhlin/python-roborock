@@ -1,5 +1,8 @@
 # Roborock
 
+This is a fork of the original and still maintained project found here: https://github.com/humbertogontijo/homeassistant-roborock
+The intent of this fork is to be used with the [homeassistant-roborock](https://github.com/humbertogontijo/homeassistant-roborock) custom integration and backport/fix some issues as mosts of the focus is currently on the core integration.
+
 <p align="center">
   <a href="https://pypi.org/project/python-roborock/">
     <img src="https://img.shields.io/pypi/v/python-roborock.svg?logo=python&logoColor=fff&style=flat-square" alt="PyPI Version">
